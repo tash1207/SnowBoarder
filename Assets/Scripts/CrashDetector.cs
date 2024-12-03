@@ -10,7 +10,7 @@ public class CrashDetector : MonoBehaviour
     [SerializeField] AudioClip crashSFX;
     bool hasCrashed = false;
     void OnTriggerEnter2D(Collider2D other) {
-        if (!hasCrashed && other.tag == "Ground")
+        if (!hasCrashed && (other.tag == "Ground" || other.tag == "Rock"))
         {
             hasCrashed = true;
             FindObjectOfType<PlayerController>().DisableControls();
